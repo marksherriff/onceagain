@@ -15,6 +15,8 @@ namespace OnceAgain
         private int spriteWidth, spriteHeight;
         private Texture2D image;
 
+
+
         public Sprite(int x, int y, int width, int height)
         {
             this.spriteX = x;
@@ -49,6 +51,30 @@ namespace OnceAgain
             sb.Draw(image, new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight), Color.White);
         }
 
+		public void Update(KeyboardState keyboard, GamePadState p1_gamepad)
+		{
+			Move (keyboard, p1_gamepad);
+		}
+
+		public void Move(KeyboardState keyboard, GamePadState p1_gamepad)
+		{
+			if (keyboard.IsKeyDown(Keys.S)  || (p1_gamepad.ThumbSticks.Left.Y < -0.5f)) // 
+			{
+				spriteY += 5;
+			}
+			if (keyboard.IsKeyDown(Keys.W) || (p1_gamepad.ThumbSticks.Left.Y > 0.5f)) //  
+			{
+				spriteY -= 5;
+			}
+			if(keyboard.IsKeyDown(Keys.D) || p1_gamepad.ThumbSticks.Left.X > 0.5f)
+			{
+				spriteX += 5;
+			}
+			if (keyboard.IsKeyDown(Keys.A) || p1_gamepad.ThumbSticks.Left.X < -0.5f)
+			{
+				spriteX -= 5;
+			}
+		}
 
     }
 }

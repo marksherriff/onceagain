@@ -12,6 +12,7 @@ using Tao.Sdl;
 
 namespace OnceAgain
 {
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -81,24 +82,7 @@ namespace OnceAgain
 			// TODO: Add your update logic here
 			//Up, down, left, right affect the coordinates of the sprite
 
-
-			if (keyboard.IsKeyDown(Keys.S)  || (p1_gamepad.ThumbSticks.Left.Y < -0.5f)) // 
-			{
-				sprite.spriteY += 5;
-			}
-			if (keyboard.IsKeyDown(Keys.W) || (p1_gamepad.ThumbSticks.Left.Y > 0.5f)) //  
-			{
-				sprite.spriteY -= 5;
-			}
-			if(keyboard.IsKeyDown(Keys.D) || p1_gamepad.ThumbSticks.Left.X > 0.5f)
-			{
-				sprite.spriteX += 5;
-			}
-			if (keyboard.IsKeyDown(Keys.A) || p1_gamepad.ThumbSticks.Left.X < -0.5f)
-			{
-				sprite.spriteX -= 5;
-			}
-
+			sprite.Update (keyboard, p1_gamepad);
 
 			base.Update(gameTime);
 		}
@@ -119,4 +103,5 @@ namespace OnceAgain
 			base.Draw(gameTime);
 		}
 	}
+
 }
