@@ -20,7 +20,9 @@ namespace OnceAgain
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-		Sprite sprite;
+		Player player1;
+		Controls controls;
+
         public OnceAgainMain()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -37,11 +39,12 @@ namespace OnceAgain
         {
             // TODO: Add your initialization logic here
 
-			sprite = new Sprite(50, 50, 50, 50);
+			player1 = new Player(50, 50, 50, 50);
 			base.Initialize();
 
 			Joystick.Init ();
 			Console.WriteLine("Number of joysticks: " + Sdl.SDL_NumJoysticks());
+			controls = new Controls ();
         }
 
         /// <summary>
@@ -52,7 +55,7 @@ namespace OnceAgain
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-			sprite.LoadContent(this.Content);
+			player1.LoadContent(this.Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -73,8 +76,7 @@ namespace OnceAgain
         protected override void Update(GameTime gameTime)
         {
 			//set our keyboardstate tracker update can change the gamestate on every cycle
-			KeyboardState keyboard = Keyboard.GetState();
-			GamePadState p1_gamepad = GamePad.GetState (PlayerIndex.One);
+			controls.Update ();
 
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
@@ -82,7 +84,7 @@ namespace OnceAgain
 			// TODO: Add your update logic here
 			//Up, down, left, right affect the coordinates of the sprite
 
-			sprite.Update (keyboard, p1_gamepad);
+			player1.Update (controls, gameTime);
 
 			base.Update(gameTime);
 		}
@@ -97,7 +99,7 @@ namespace OnceAgain
 
 			// TODO: Add your drawing code here
 			spriteBatch.Begin();
-			sprite.Draw(spriteBatch);
+			player1.Draw(spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);

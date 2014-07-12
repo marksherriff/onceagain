@@ -64,19 +64,19 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="MonoMac">
-      <HintPath>..\..\..\MonoGameLibs3.2\MonoMac.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\MonoGameLibs3.2\MonoMac.dll</HintPath>
     </Reference>
     <Reference Include="Lidgren.Network">
-      <HintPath>..\..\..\MonoGameLibs3.2\Lidgren.Network.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\MonoGameLibs3.2\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\..\MonoGameLibs3.2\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\MonoGameLibs3.2\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Tao.Sdl">
-      <HintPath>..\..\..\MonoGameLibs3.2\Tao.Sdl.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\MonoGameLibs3.2\Tao.Sdl.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework.Net">
-      <HintPath>..\..\..\MonoGameLibs3.2\MonoGame.Framework.Net.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\MonoGameLibs3.2\MonoGame.Framework.Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +90,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="OnceAgainMain.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Controls.cs" />
     <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
